@@ -1,0 +1,44 @@
+@use "_mixins.scss" as mixins;
+@use "sass:math";
+@font-face {
+  font-family: 'FontAwesome Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Font-Awesome-5-Brands-Regular-400.woff') format('woff') ;
+}
+
+:root {
+  --font-family: "Open Sans", sans-serif;
+  --second-family: "Bruno Ace", sans-serif;
+  --third-family: "Roboto", sans-serif;
+  --font3: "FontAwesome Regular", sans-serif;
+  --font4: "Bruno Ace SC", sans-serif;
+}
+$fontSize: 16px;
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1564;
+$containerPadding: 178;
+$containerWidth: $maxWidthContainer + $containerPadding;
+$pc: mixins.rem($containerWidth);
+$laptop: mixins.rem(1440);
+$tablet: mixins.rem(1024);
+$mobile: mixins.rem(768);
+$mobileSmall: mixins.rem(375);
+
+[class*="__container"] {
+  @if ($maxWidthContainer>0) {
+    max-width: mixins.rem($containerWidth);
+    padding: 0 mixins.rem($containerPadding);
+    margin: 0 auto;
+  }
+  @media (max-width: $tablet) {
+    // padding: 0 mixins.rem(56);
+  }
+  @media (max-width: $mobile) {
+    // padding: 0 mixins.rem(48);
+  }
+  @media (max-width: $mobileSmall) {
+    // padding: 0 mixins.rem(24);
+  }
+}
