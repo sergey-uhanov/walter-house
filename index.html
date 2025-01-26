@@ -1,14 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./logo.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stream Vide</title>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="./logo.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Walter house</title>
 </head>
-<body class="body">
+<body>
 
-<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores consequuntur cum, debitis ducimus eos error eveniet hic in natus numquam pariatur quae recusandae repellendus rerum, suscipit totam voluptate voluptates.</h1>
+<section class="main-slider-section">
+    <load src="src/components/Header.html"/>
+    <load src="src/components/Sidebar.html"/>
+
+    <div class="screens-swiper">
+        <div class="swiper-wrapper screens-swiper__wrapper">
+            <div class="swiper-slide">
+                <article class="first-screen">
+                    <h1 class="first-screen__title">walter <span>House</span></h1>
+                </article>
+                <load src="src/components/Form-call-back.html"/>
+            </div>
+
+            <div class="swiper-slide screens-swiper__slide_second-slide">
+                <article class="second-screen ">
+                    <h2 class="second-screen__title">
+                        elite renovation of your apartment
+                    </h2>
+                    <div class="second-screen__achievements achievements">
+                        <ul class="achievements__list">
+                            <li class="achievements__item">
+                                <span class="achievements__number">18</span>
+                                <p class="achievements__text achievements__text_long-text">years<br>
+                                    <span>on the market</span></p>
+                            </li>
+                            <li class="achievements__item">
+                                <span class="achievements__number">237</span>
+                                <p class="achievements__text">completed projects</p>
+                            </li>
+                            <li class="achievements__item">
+                                <span class="achievements__number">50</span>
+                                <p class="achievements__text">employees</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="second-screen__link" >more info about us <span><svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 1L17 11.5L1 22" stroke="white" stroke-opacity="0.5" />
+</svg></span></a>
+                </article>
+            </div>
+
+            <div class="swiper-slide">
+                <article class=" gallery-screen ">
+
+                </article>
+            </div>
+
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>

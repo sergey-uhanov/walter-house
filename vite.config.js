@@ -44,7 +44,7 @@ export default defineConfig({
 				},
 			],
 		}),
-		replaceImgWithPicturePlugin(),
+		 // replaceImgWithPicturePlugin(),
 	],
 	envPrefix: 'APP_',
 	resolve: {

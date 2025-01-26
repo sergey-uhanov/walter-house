@@ -27,14 +27,14 @@ export const convertImages = (srcDir, destDir) => {
 		}
 
 		// Конвертация в формат AVIF
-		const avifDestPath = path.join(destDir, `${path.basename(file, ext)}.avif`);
-		if (['.png', '.jpg', '.jpeg'].includes(ext)) {
-			sharp(filePath)
-				.avif({ quality: 75 })
-				.toFile(avifDestPath)
-				.catch((err) =>
-					console.error(`Error converting ${file} to AVIF:`, err),
-				);
-		}
+		// const avifDestPath = path.join(destDir, `${path.basename(file, ext)}.avif`);
+		// if (['.png', '.jpg', '.jpeg'].includes(ext)) {
+		// 	sharp(filePath)
+		// 		.avif({ quality: 75 })
+		// 		.toFile(avifDestPath)
+		// 		.catch((err) =>
+		// 			console.error(`Error converting ${file} to AVIF:`, err),
+		// 		);
+		// }
 	});
 };

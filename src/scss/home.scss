@@ -1,2 +1,218 @@
-@use "mixins.scss";
+@use "mixins.scss" as mix;
 @use "_variables.scss";
+
+.screens-swiper {
+  height: 100vh;
+
+  .swiper-pagination {
+    right: mix.rem(115) !important;
+    @include mix.respond-to('laptop') {
+      right: mix.rem(50) !important;
+    }
+    @include mix.respond-to(825) {
+      display: none;
+    }
+  }
+
+  .swiper-pagination-bullet:not(:last-child) {
+    margin-bottom: mix.rem(30) !important;
+  }
+
+  .swiper-pagination-bullet {
+    width: mix.rem(7);
+    height: mix.rem(7);
+    background-color: var(--slide-pagination);
+    opacity: 0.7;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--active-slide-pagination);
+    transform: scale(1.2);
+  }
+
+  .swiper-pagination-bullet-active:after {
+    content: "";
+    width: mix.rem(27);
+    height: mix.rem(27);
+    border-radius: 100%;
+    border: 1px solid var(--border-color);
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  &__slide_second-slide{
+    @include mix.respond-to('tablet') {
+      display: none !important;
+    }
+  }
+}
+
+.first-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url("../images/main-slide1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 30%;
+
+  &__title{
+    width: mix.rem(635);
+    font-weight: 400;
+    font-size: 6rem;
+    line-height: 0.93;
+    text-transform: uppercase;
+    color: var(--pri-color);
+    font-family: var(--font4);
+    position: absolute;
+    top: 45%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+
+    @include mix.respond-to('laptop'){
+     margin-left: 10rem;
+    }
+    @include mix.respond-to(767){
+      font-size: 3rem;
+      width:100%;
+      max-width: mix.rem(365);
+      margin-left: 3.5rem;
+      @include mix.respond-to(425){
+        font-size: 2.4rem;
+        max-width: mix.rem(297);
+        margin-left: 3.5rem;
+      }
+    }
+    span{
+      display: block;
+      float: right;
+      margin-top: 1rem;
+      position: relative;
+      &::before{
+        content: 'your personal';
+        font-family: var(--third-family);
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.71875;
+        letter-spacing: 0.52em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        position: absolute;
+        top: -1rem;
+        left: -45%;
+        @include mix.respond-to(600){
+          top: -1.2rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+.second-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url("../images/main-slide2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__title{
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pri-color);
+    padding-top: mix.rem(230);
+    padding-bottom: mix.rem(111);
+    max-width: 26rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &__link{
+    position: absolute;
+    bottom: mix.rem(95);
+    left: 20.4%;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--pri-color);
+    transition: transform .2s;
+    padding: 5px;
+    span{
+      margin-left: mix.rem(108);
+      position: relative;
+      top: 7px;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        background-color: var(--pri-color);
+        left: -100px;
+        top: 3px;
+      }
+    }
+  }
+
+  &__link:hover{
+    transform: scale(1.1);
+
+  }
+}
+
+.achievements{
+  max-width: 75.96rem;
+  margin: 0 auto;
+  @include mix.respond-to("laptop"){
+    max-width: 49rem;
+  }
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 1.88rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--pri-color);
+  }
+  &__number{
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.6rem;
+    display: block;
+  }
+    &__text{
+      max-width: 10.7rem;
+      line-height: 1.2;
+      &_long-text{
+        white-space: nowrap;
+      span{
+        position: relative;
+        left: -27px;
+      }
+      }
+    }
+
+}
+
+.gallery-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url("../images/main-slide1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

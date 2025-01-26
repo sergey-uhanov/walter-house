@@ -1,0 +1,43 @@
+<form action="POST" class="call-back" id="call-back-form" novalidate="novalidate">
+    <div class="call-back__input-item field">
+        <input
+                name="userName"
+                type="text"
+                minlength="4"
+                maxlength="20"
+                class="field__input"
+                id="user-name"
+                placeholder=" "
+                pattern="^[A-Za-z\s]+$"
+                title="Must have letters"
+        >
+        <label for="user-name" class="field__label">Your name</label>
+
+    </div>
+    <div class="call-back__input-item field">
+        <input
+                required
+                aria-errormessage="user-phone-errors"
+                name="userPhone"
+                type="text"
+                minlength="10"
+                maxlength="15"
+                class="field__input"
+                id="user-phone"
+                placeholder=" "
+                pattern="^[0-9\s\-\+\(\)]+$"
+                title="Must have numbers"
+        >
+        <label for="user-phone" class="field__label">Your phone number</label>
+        <span class="field__errors" id="user-phone-errors"></span>
+    </div>
+
+    <button class="call-back__button" type="submit">
+        Discuss a project
+        <span>
+            <svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L17 11.5L1 22" stroke="#FFAC30"/>
+            </svg>
+        </span>
+    </button>
+</form>

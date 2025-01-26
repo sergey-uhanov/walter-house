@@ -1,0 +1,97 @@
+@use "_mixins.scss" as mix;
+
+.call-back{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  max-width: 46.25rem;
+  width: 100%;
+  height: 23.75rem;
+  background: var(--pri-bc);
+  padding: mix.rem(81) mix.rem(120) mix.rem(85) mix.rem(120);
+  &__input-item{
+    &:not(:last-child) {
+      margin-bottom: mix.rem(45);
+    }
+  }
+
+  &__button{
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    span{
+      margin-left: mix.rem(108);
+      position: relative;
+      top: 0;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        background-color: var(--gold);
+        left: -100px;
+        top: mix.rem(9.5);
+      }
+    }
+  }
+}
+
+.field {
+  position: relative;
+  width: 100%;
+  height: 23px;
+  @include mix.respond-to('tablet') {
+
+  }
+  @include mix.respond-to('mobile') {
+
+  }
+
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(186, 186, 186, 0.59);
+    outline: none;
+    background: transparent;
+  }
+
+
+
+  &__label {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    color: grey;
+    transition: 0.3s ease;
+    cursor: text;
+    font-weight: 600;
+    font-size: 0.69rem;
+    letter-spacing: 0.06em;
+  }
+
+  &__input:not(:placeholder-shown) + &__label,
+  &__input:focus + &__label {
+    color: var(--black);
+    font-size: 0.5rem;
+    top: -0.3rem;
+    left: -0rem;
+    background: var(--white);
+    padding: 0 0.2rem;
+
+    z-index: 1;
+  }
+}
+
+.is-invalid{
+  border-bottom: 1px solid red;
+}
+.just-validate-error-label{
+  width: 50px;
+}
+

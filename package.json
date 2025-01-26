@@ -23,6 +23,7 @@
     "vite-plugin-svg-icons": "^2.0.1"
   },
   "dependencies": {
+    "just-validate": "^4.3.0",
     "swiper": "^11.1.15"
   }
 }

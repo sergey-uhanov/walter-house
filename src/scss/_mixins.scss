@@ -1,35 +1,30 @@
 @use "sass:math";
-// @use "_variables.scss";
-@mixin font($font_name, $file_name, $weight, $style) {
-  @font-face {
-    font-family: $font_name;
-    font-display: swap;
-    src: url("../fonts/#{$file_name}.woff2") format("woff2"),
-    url("../fonts/#{$file_name}.woff") format("woff");
-    font-weight: #{$weight};
-    font-style: #{$style};
-  }
-}
-
-@function percent($px, $from) {
-  $result: math.div($px, $from) * 100%;
-  @return $result;
-}
 
 @function rem($px) {
   $result: math.div($px, 16) + rem;
   @return $result;
 }
 
-@function em($px, $current: 16) {
-  $result: math.div($px, $current) + em;
-  @return $result;
-}
-
-@mixin responsive-value($property, $min, $max, $min-width, $max-width) {
-  #{$property}: clamp(
-          #{$min},
-          calc(#{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-width}) / (#{$max-width} - #{$min-width}))),
-          #{$max}
-  );
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'mobileSmall' {
+    @media (max-width: 375px) {
+      @content;
+    }
+  } @else if $breakpoint == 'mobile' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == 'tablet' {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }@else if $breakpoint == 'laptop' {
+    @media (max-width: 1440px) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint + px) {
+      @content;
+    }
+  }
 }
