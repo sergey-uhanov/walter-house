@@ -1,7 +1,7 @@
 @use "_mixins.scss" as mix;
 .sidebar {
   position: absolute;
-  left: mix.rem(65);
+  left: 3.8rem;
   top: mix.rem(45);
   z-index: 10;
   width: mix.rem(68);
@@ -10,9 +10,16 @@
   display: flex;
   flex-direction: column;
   align-items: center ;
+
+  pointer-events: none;
   @include mix.respond-to('mobile'){
     left: 0.5rem;
     top: 0.5rem;
+  }
+
+  &__logo{
+    position: relative;
+    top: -1rem;
   }
 
   &__slogan-wrapper {
@@ -24,6 +31,7 @@
     text-transform: uppercase;
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
     @include mix.respond-to('mobile'){
       display: none;
     }
@@ -64,6 +72,7 @@
   &__social {
     display: flex;
     flex-direction: column;
+    pointer-events: auto;
     gap: mix.rem(40);
     @include mix.respond-to('mobile'){
       display: none;

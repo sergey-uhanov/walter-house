@@ -17,19 +17,16 @@
     <div class="call-back__input-item field">
         <input
                 required
-                aria-errormessage="user-phone-errors"
                 name="userPhone"
-                type="text"
+                type="tel"
                 minlength="10"
                 maxlength="15"
                 class="field__input"
                 id="user-phone"
                 placeholder=" "
-                pattern="^[0-9\s\-\+\(\)]+$"
-                title="Must have numbers"
         >
         <label for="user-phone" class="field__label">Your phone number</label>
-        <span class="field__errors" id="user-phone-errors"></span>
+        <span class="field__errors" id="user-phone-errors"> </span>
     </div>
 
     <button class="call-back__button" type="submit">
