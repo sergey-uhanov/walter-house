@@ -1,13 +1,12 @@
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
-import {viteStaticCopy} from 'vite-plugin-static-copy';
-import path, {resolve} from 'path';
-import {convertImages} from './utils/convertImages';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
+import path, { resolve } from 'path';
+import { convertImages } from './utils/convertImages';
 import injectHTML from 'vite-plugin-html-inject';
 
-
 const publicImagesDir = path.resolve(__dirname, 'public-src/images');
-const outputImagesDir = path.resolve(__dirname, 'images-con');
+const outputImagesDir = path.resolve(__dirname, 'public-src/images');
 convertImages(publicImagesDir, outputImagesDir);
 
 export default defineConfig({
@@ -18,25 +17,22 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                // main: resolve(__dirname, 'index.html'),
+                index: resolve(__dirname, 'index.html'),
                 about: resolve(__dirname, 'about.html'),
                 home: resolve(__dirname, 'home.html'),
             },
             output: {
-                manualChunks: {
-                    home: ['./src/js/home.js'],
-                    base: ['./src/js/base.js'],
-                },
+                entryFileNames: 'js/[name].js', // Имена файлов JavaScript без хэша
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name.endsWith('.css')) {
                         return 'css/[name].[hash].css'; // CSS в отдельную папку
                     }
-                    return 'assets/[name].[hash].[ext]'; // Остальные файлы
+                    return 'assets/[name].[ext]'; // Остальные файлы
                 },
             },
         },
         outDir: './dist',
-        assetsDir: 'js',
+        assetsDir: 'assets', // Папка для ресурсов (изображений, шрифтов и т.д.)
         emptyOutDir: true,
         cssCodeSplit: true,
     },

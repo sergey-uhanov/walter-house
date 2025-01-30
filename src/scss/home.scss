@@ -1,5 +1,11 @@
 @use "mixins.scss" as mix;
 @use "_variables.scss";
+@use "./_sidebar.scss";
+@use "./_form-call-back.scss";
+@use "header";
+@use "sass:math";
+@use "_reset.scss";
+@use "style.scss";
 
 .screens-swiper {
   height: 100vh;
@@ -56,7 +62,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url("../images/main-slide1.webp");
+  url("/public-src/images/main-slide1.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 30%;
@@ -120,7 +126,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url("../images/main-slide2.webp");
+  url("/public-src/images/main-slide2.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -238,10 +244,7 @@
 .gallery-screen {
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url("../images/main-slide1.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
+
 }
 
 
@@ -404,14 +407,14 @@
 
   &__item:nth-child(1) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../images/elite.webp");
+    url("/public-src/images/elite.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: pointer;
     @include mix.respond-to("tablet") {
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("../images/elite-mobile.webp");
+      url("/public-src/images/elite-mobile.webp");
       background-repeat: no-repeat;
       background-repeat: no-repeat;
       background-size: cover;
@@ -421,14 +424,14 @@
 
   &__item:nth-child(2) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../images/vip.webp");
+    url("/public-src/images/vip.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: pointer;
     @include mix.respond-to("tablet") {
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("../images/vip-mobile.webp");
+      url("/public-src/images/vip-mobile.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -437,14 +440,14 @@
 
   &__item:nth-child(3) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../images/extra.webp");
+    url("/public-src/images/extra.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: pointer;
     @include mix.respond-to("tablet") {
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("../images/extra-mobile.webp");
+      url("/public-src/images/extra-mobile.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
