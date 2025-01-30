@@ -5,13 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="./logo.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Walter house</title>
+    <link rel="stylesheet" href="/src/scss/home.scss" />
 </head>
 <body>
 
 <section class="main-slider-section">
     <load src="src/components/Header.html"/>
     <load src="src/components/Sidebar.html"/>
-        <load src="src/components/Form-call-back.html"/>
+    <load src="src/components/Form-call-back.html"/>
 
     <div class="screens-swiper">
         <div class="swiper-wrapper screens-swiper__wrapper">
@@ -56,16 +57,17 @@
                 <article class=" gallery-screen ">
                     <div class="grid">
                         <div class="grid__item init-slider" index="1">
+                            <div class="gallery gallery_hidden">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide gallery__slide">Slide 2.1</div>
+                                    <div class="swiper-slide gallery__slide">Slide 2.2</div>
+                                    <div class="swiper-slide gallery__slide">Slide 2.3</div>
+                                </div>
+                            </div>
                             <div class="grid__content">
                                 <div class="grid__title init-slider-button">Elite</div>
                                 <div class="grid__extra-content extra-content grid__extra-content_hidden">  </div>
-                                <div class="gallery gallery_hidden">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide gallery__slide">Slide 2.1</div>
-                                        <div class="swiper-slide gallery__slide">Slide 2.2</div>
-                                        <div class="swiper-slide gallery__slide">Slide 2.3</div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                         <div class="grid__item init-slider" index="2">
@@ -107,16 +109,17 @@
                             </div>
                         </div>
                         <div class="grid__item init-slider" index="3">
+                            <div class="gallery gallery_hidden">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide gallery__slide">Slide 2.13333</div>
+                                    <div class="swiper-slide gallery__slide">Slide 2.233333</div>
+                                    <div class="swiper-slide gallery__slide">Slide 2.3333333</div>
+                                </div>
+                            </div>
                             <div class="grid__content">
                                 <div class="grid__title init-slider-button">Extra</div>
                                 <div class="grid__extra-content extra-content grid__extra-content_hidden">  </div>
-                                <div class="gallery gallery_hidden">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide gallery__slide">Slide 2.13333</div>
-                                        <div class="swiper-slide gallery__slide">Slide 2.233333</div>
-                                        <div class="swiper-slide gallery__slide">Slide 2.3333333</div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -129,6 +132,6 @@
     </div>
 </section>
 
-<script type="module" src="/src/main.js"></script>
+<script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

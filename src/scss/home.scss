@@ -5,6 +5,7 @@
   height: 100vh;
 
   .swiper-pagination {
+    z-index: 10;
     right: mix.rem(115) !important;
     @include mix.respond-to('laptop') {
       right: mix.rem(50) !important;
@@ -710,7 +711,7 @@
 .gallery{
   width: 100vw;
   height: 100vh;
-
+  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -722,6 +723,6 @@
   &__slide{
     width: 100vw;
     height: 100vh;
-    background: #ffac30;
+    background: rgb(0, 101, 172);
   }
 }

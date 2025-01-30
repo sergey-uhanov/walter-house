@@ -4,7 +4,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import {showCallBack} from "@/modules/show-call-back-form.js";
+import {showCallBack} from "@/js/modules/show-call-back-form.js";
+
 
 export function screensSlider() {
 
