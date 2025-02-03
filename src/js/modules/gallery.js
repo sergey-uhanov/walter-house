@@ -4,9 +4,10 @@ export function galleryScreen() {
 
 
    if (widthViewport > 1024) {
-       console.log('Больше 1024')
+
        gridItems.forEach((item) => {
            item.addEventListener('click', () => {
+
                if (item.attributes.index.value === '2') {
                    gridItems.forEach((el) => {
                        if (el === item) {
@@ -37,7 +38,7 @@ export function galleryScreen() {
        });
    }
    if (widthViewport <= 1024) {
-       console.log('меньше 1024')
+
        gridItems.forEach((item) => {
            item.addEventListener('click', () => {
                if (item.attributes.index.value === '2') {
@@ -52,7 +53,7 @@ export function galleryScreen() {
                                el.querySelector('.grid__title_mid').classList.remove('grid__title_hidden');
                            }
                        } else {
-                           el.style.height= '25%'; // Остальные элементы
+                           el.style.height= '25%';
                        }
                    });
                } else {

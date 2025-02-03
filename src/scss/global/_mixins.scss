@@ -1,0 +1,76 @@
+@use "sass:math";
+@use 'sass:map';
+@function rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'mobileSmall' {
+    @media (max-width: 375px) {
+      @content;
+    }
+  } @else if $breakpoint == 'mobile' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == 'tablet' {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }@else if $breakpoint == 'laptop' {
+    @media (max-width: 1440px) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint + px) {
+      @content;
+    }
+  }
+}
+$breakpoints: (
+        xxs: 375px,
+        xs: 576px,
+        sm: 768px,
+        md: 1024px,
+        lg: 1440px,
+        l: 1650px,
+        xl: 1920px,
+);
+
+$directions: (
+        height: height,
+        width: width,
+);
+
+@mixin media-breakpoint-up($breakpoint, $direction: width) {
+  @if map.has-key($directions, $direction) {
+    @if map.has-key($breakpoints, $breakpoint) {
+      $breakpoint-value: map.get($breakpoints, $breakpoint);
+
+      @media (min-#{$direction}: $breakpoint-value) {
+        @content;
+      }
+    } @else {
+      @warn "Invalid breakpoint: #{$breakpoint}.";
+    }
+  } @else {
+    @warn "Invalid direction: #{$direction}.";
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint, $direction: width) {
+  @if map.has-key($directions, $direction) {
+    @if map.has-key($breakpoints, $breakpoint) {
+      $breakpoint-value: map.get($breakpoints, $breakpoint);
+
+      @media (max-#{$direction}: $breakpoint-value - 1) {
+        @content;
+      }
+    } @else {
+      @warn "Invalid breakpoint: #{$breakpoint}.";
+    }
+  } @else {
+    @warn "Invalid direction: #{$direction}.";
+  }
+}

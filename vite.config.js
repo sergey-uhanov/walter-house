@@ -18,21 +18,20 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: resolve(__dirname, 'index.html'),
-                about: resolve(__dirname, 'about.html'),
-                home: resolve(__dirname, 'home.html'),
+
             },
             output: {
-                entryFileNames: 'js/[name].js', // Имена файлов JavaScript без хэша
+                entryFileNames: 'js/[name].js',
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name.endsWith('.css')) {
-                        return 'css/[name].[hash].css'; // CSS в отдельную папку
+                        return 'css/[name].[hash].css';
                     }
-                    return 'assets/[name].[ext]'; // Остальные файлы
+                    return 'assets/[name].[ext]';
                 },
             },
         },
         outDir: './dist',
-        assetsDir: 'assets', // Папка для ресурсов (изображений, шрифтов и т.д.)
+        assetsDir: 'assets',
         emptyOutDir: true,
         cssCodeSplit: true,
     },
@@ -41,19 +40,6 @@ export default defineConfig({
             // typescript: true,
         }),
         injectHTML(),
-        viteStaticCopy({
-            targets: [
-                {
-                    src: 'images-con/*',
-                    dest: 'assets/images',
-                },
-                {
-                    src: 'public-src/**/!(*.png|*.svg|*.jpeg|*.jpg)',
-                    dest: 'assets',
-                    flatten: false,
-                },
-            ],
-        }),
     ],
     envPrefix: 'APP_',
     resolve: {

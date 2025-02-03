@@ -1,0 +1,93 @@
+@use "mixins" as mix;
+.sidebar {
+  position: absolute;
+  left: 3.8rem;
+  top: mix.rem(45);
+  z-index: 10;
+  width: mix.rem(68);
+  height: 100%;
+  padding-bottom:7.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+  pointer-events: none;
+
+  @include mix.media-breakpoint-down('sm') {
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+
+  &__logo{
+    position: relative;
+    top: -1rem;
+
+    @include mix.media-breakpoint-down('sm') {
+      top: 0;
+    }
+  }
+
+  &__slogan-wrapper {
+    flex-grow: 1;
+    font-family: var(--third-family);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.69em;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+
+    @include mix.media-breakpoint-down('sm') {
+      display: none;
+    }
+
+  }
+
+  &__slogan{
+    display: block;
+    transform: rotate(-90deg) translate(-80%, -20px) ;
+    transform-origin: center top;
+    max-width: 880px;
+    width: 100%;
+    white-space: nowrap;
+    position: relative;
+    @media (max-height: 852px) {
+      display: none;
+    }
+
+    @include mix.media-breakpoint-down('sm') {
+      display: none;
+    }
+    &::after{
+      content: "";
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: mix.rem(-184);
+      width: mix.rem(154);
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.25);
+      @media (max-height: 968px) {
+       display: none;
+
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    gap: mix.rem(40);
+    @include mix.respond-to('mobile'){
+      display: none;
+    }
+  }
+  &__social-item{
+    transition: transform 0.3s ease-in-out;
+  }
+  &__social-item:hover {
+   transform: scale(1.3);
+  }
+
+}
