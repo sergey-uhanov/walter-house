@@ -62,7 +62,7 @@ $mobileSmall: mixins.rem(375);
      padding: 0 mixins.rem(15);
   }
   @media (max-width: $mobile) {
-    // padding: 0 mixins.rem(48);
+     padding: 0 mixins.rem(15);
   }
   @media (max-width: $mobileSmall) {
     // padding: 0 mixins.rem(24);

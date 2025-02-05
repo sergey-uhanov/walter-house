@@ -4,6 +4,8 @@ import {validateCallBack, validatePhoneNumber} from "@/js/modules/form-validate-
 import {galleryScreen} from "@/js/modules/gallery.js";
 import {handlerClickingSlider} from "@/js/modules/gallery-slider.js";
 import {showPointGallerySlide} from "@/js/modules/show-point-gallery-slide.js";
+import { renderGallerySlide} from "@/js/modules/renge-slide.js";
+
 
 
 
@@ -14,4 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     galleryScreen()
     handlerClickingSlider()
     showPointGallerySlide()
+    renderGallerySlide()
+
+
+
+
 });
+
+
+

@@ -19,7 +19,7 @@
   }
 
   @include mix.media-breakpoint-down('md', 'height') {
-    padding: mix.rem(40) mix.rem(40);
+    display: none;
   }
   @include mix.media-breakpoint-down('sm', 'height') {
     display: none;

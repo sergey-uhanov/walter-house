@@ -19,7 +19,7 @@ export function screensSlider() {
         mousewheel: {enabled: true},
         effect: "fade",
         lazy: true,
-        speed: 1500,
+        speed: 500,
         pagination: {
             el: '.screens-swiper__pagination',
             clickable: true,
@@ -27,6 +27,7 @@ export function screensSlider() {
         allowSlideNext: true,
         allowSlidePrev: true,
         allowTouchMove: true,
+        touchStartPreventDefault: false,
         on: {
 
             init: function () {

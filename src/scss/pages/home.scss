@@ -1,5 +1,6 @@
 @use "../global/mixins" as mix;
 @use "../global/variables";
+@use "../base/cost-calculation" ;
 @use "../global/sidebar";
 @use "../global/form-call-back";
 @use "../global/header";

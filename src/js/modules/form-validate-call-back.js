@@ -33,7 +33,7 @@ export function validateCallBack() {
 
         .onSuccess((event) => {
             event.preventDefault(); // Отмена стандартной отправки формы
-            console.log('Form submitted successfully!');
+
         });
 }
 
@@ -59,8 +59,7 @@ export function validatePhoneNumber() {
             return;
         }
 
-        // Если всё корректно, форматируем номер и отправляем
-        console.log('Valid phone number:', phoneNumber.formatInternational());
+
         clearError();
 
         // Здесь можно добавить логику отправки формы

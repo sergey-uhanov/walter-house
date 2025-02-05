@@ -14,7 +14,7 @@ export function showPointGallerySlide() {
             const showElement = event.currentTarget.querySelector('.wave-point__text');
 
             if (showElement) {
-                console.log(showElement)
+
                 showElement.classList.add('wave-point__text_show');
             }
         });
