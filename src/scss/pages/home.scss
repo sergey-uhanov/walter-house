@@ -1,6 +1,6 @@
 @use "../global/mixins" as mix;
 @use "../global/variables";
-@use "../base/cost-calculation" ;
+@use "../base/_cost-calculation" ;
 @use "../global/sidebar";
 @use "../global/form-call-back";
 @use "../global/header";
@@ -8,6 +8,7 @@
 @use "../global/reset";
 @use "../style";
 @use "../base/gallery";
+@use "../base/steps";
 
 .screens-swiper {
   height: 100vh;
@@ -215,7 +216,9 @@
     position: absolute;
     right: -10.9rem;
     top: -22%;
-
+    @include mix.media-breakpoint-down('lg') {
+      right: -5.9rem;
+    }
   }
 
   &__number {

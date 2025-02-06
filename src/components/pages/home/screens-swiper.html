@@ -153,7 +153,8 @@
                             </div>
                         </div>
                         <ul class="cost-calculation__levels-list">
-                            <li class="cost-calculation__level cost-calculation__level_active">
+                            <li class="cost-calculation__level cost-calculation__level_active" factor="Elite" >
+                                <div class="cost-calculation__information" inform="elite">i</div>
                                 Elite
                                 <span>
                                     <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
@@ -163,21 +164,23 @@
                                     </svg>
                                 </span>
                             </li>
-                            <li class="cost-calculation__level">
+                            <li class="cost-calculation__level" factor="Vip">
+                                <div class="cost-calculation__information" inform="vip">i</div>
                                 Vip
                                 <span>
-                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)" fill="white"/>
+                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)" fill="currentColor"/>
                                     </svg>
                                 </span>
                             </li>
-                            <li class="cost-calculation__level">
+                            <li class="cost-calculation__level" factor="Extra">
+                                <div class="cost-calculation__information" inform="extra" >i</div>
                                 Extra
                                 <span>
-                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)" fill="white"/>
+                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)" fill="currentColor"/>
                                     </svg>
                                 </span>
                             </li>
@@ -192,6 +195,12 @@
                     </div>
                 </div>
             </article>
+        </div>
+
+        <div class="swiper-slide">
+
+                <load src="src/components/pages/home/steps-screen.html"/>
+
         </div>
     </div>
 

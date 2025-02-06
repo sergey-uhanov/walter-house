@@ -1,4 +1,4 @@
-export function renderGallerySlide() {
+export function priceRangeSlide() {
 
     function circle() {
         const slider = document.querySelector(".slider");
@@ -9,6 +9,7 @@ export function renderGallerySlide() {
         const steps = 101;
         let circleValue = 0;
         let latestSteps = 0;
+
         slider.style.left = radius + "px";
         slider.style.top = "0";
 
@@ -87,9 +88,8 @@ export function renderGallerySlide() {
 
         function updateCircle(percentage) {
             const circlePath = document.getElementById("circle-path");
-            const circumference = 2 * Math.PI * radius;
-            const initialOffset = circumference - circumference * (percentage / -400);
-
+            const circumference = 2 * Math.PI * 117;
+            const initialOffset = circumference - circumference * (percentage / -404);
             circlePath.style.strokeDasharray = circumference;
             circlePath.style.strokeDashoffset = initialOffset;
         }
@@ -140,8 +140,7 @@ export function renderGallerySlide() {
         const circleWraps = document.querySelectorAll(".cost-calculation__level");
         circleWraps.forEach((circleWrap) => {
             if (circleWrap.classList.contains("cost-calculation__level_active")) {
-                const textContent = circleWrap.textContent;
-
+                const textContent = circleWrap.getAttribute('factor');
 
                 switch (textContent.trim()) {
                     case 'Elite':
