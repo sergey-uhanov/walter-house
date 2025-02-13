@@ -63,7 +63,7 @@
             <load src="src/components/pages/home/gallery-screen.html"/>
         </div>
 
-        <div class="swiper-slide">
+        <div class="swiper-slide ">
             <article class="cost-calculation">
                 <div class="cost-calculation__container">
                     <h2 class="cost-calculation__title">
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         <ul class="cost-calculation__levels-list">
-                            <li class="cost-calculation__level cost-calculation__level_active" factor="Elite" >
+                            <li class="cost-calculation__level cost-calculation__level_active" factor="Elite">
                                 <div class="cost-calculation__information" inform="elite">i</div>
                                 Elite
                                 <span>
@@ -170,17 +170,19 @@
                                 <span>
                                     <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)" fill="currentColor"/>
+                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)"
+                                                 fill="currentColor"/>
                                     </svg>
                                 </span>
                             </li>
                             <li class="cost-calculation__level" factor="Extra">
-                                <div class="cost-calculation__information" inform="extra" >i</div>
+                                <div class="cost-calculation__information" inform="extra">i</div>
                                 Extra
                                 <span>
                                     <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)" fill="currentColor"/>
+                                        <ellipse cx="4" cy="4" rx="4" ry="4" transform="rotate(90 4 4)"
+                                                 fill="currentColor"/>
                                     </svg>
                                 </span>
                             </li>
@@ -194,12 +196,65 @@
                         <div class="cost-calculation__price">0 <span>UAH</span></div>
                     </div>
                 </div>
+                <div class="cost-calculation__description">
+                    <div class="cost-calculation__title-description"></div>
+                    <div class="cost-calculation__inform"></div>
+                </div>
+                <dialog class="style-popup" id="myDialog">
+                    <div class="style-popup__content">
+                        <button id="closeDialog">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.6585 4.92888C18.049 4.53836 18.6822 4.53835 19.0727 4.92888C19.4632 5.3194 19.4632 5.95257 19.0727 6.34309L13.4158 12L19.0727 17.6568C19.4632 18.0473 19.4632 18.6805 19.0727 19.071C18.6822 19.4615 18.049 19.4615 17.6585 19.071L12.0016 13.4142L6.34481 19.071C6.3387 19.0771 6.33254 19.0831 6.32632 19.089C5.93455 19.4614 5.31501 19.4554 4.93059 19.071C4.6377 18.7781 4.56447 18.3487 4.71092 17.9876C4.75973 17.8672 4.83296 17.7544 4.93059 17.6568L10.5874 12L4.93059 6.34314C4.54006 5.95262 4.54006 5.31945 4.93059 4.92893C5.32111 4.5384 5.95428 4.5384 6.3448 4.92893L12.0016 10.5857L17.6585 4.92888Z"
+                                      fill="black"/>
+                            </svg>
+                        </button>
+                        <h5 class="style-popup__title"></h5>
+                        <div class="style-popup__sub-title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Aenean
+                            commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+                        </div>
+                        <ul class="style-popup__list">
+                            <li class="style-popup__item">
+                                Dismantling and Erection of interior partitions
+                            </li>
+                            <li class="style-popup__item">
+                                Leveling of walls under the beacon, finishing of walls under wallpaper
+                            </li>
+                            <li class="style-popup__item">
+                                Making 90-degree angles
+                            </li>
+                            <li class="style-popup__item">
+                                Electrical installation works (according to the project)
+                            </li>
+                            <li class="style-popup__item">
+                                Dismantling and Erection of interior partitions
+                            </li>
+                            <li class="style-popup__item">
+                                Leveling of walls under the beacon, finishing of walls under wallpaper
+                            </li>
+                            <li class="style-popup__item">
+                                Making 90-degree angles
+                            </li>
+                            <li class="style-popup__item">
+                                Electrical installation works (according to the project)
+                            </li>
+                        </ul>
+                    </div>
+                </dialog>
             </article>
+
         </div>
 
-        <div class="swiper-slide">
+        <div class="swiper-slide steps-screen">
 
-                <load src="src/components/pages/home/steps-screen.html"/>
+            <load src="src/components/pages/home/steps-screen.html"/>
+
+        </div>
+
+        <div class="swiper-slide screens-swiper__slide_cards">
+
+            <load src="src/components/pages/home/cards-screen.html"/>
 
         </div>
     </div>

@@ -1,34 +1,52 @@
 @use "mixins" as mix;
 
+.call-back-form {
+
+  &_bottom {
+    @include mix.media-breakpoint-down('md', 'height') {
+      display: none;
+    }
+
+    @include mix.media-breakpoint-down('sm', 'height') {
+      display: none;
+    }
+  }
+
+  @include mix.media-breakpoint-down('sm') {
+    max-width: 100%;
+  }
+
+  @include mix.media-breakpoint-down('xs') {
+    padding: mix.rem(40) mix.rem(40);
+  }
+
+  @include mix.media-breakpoint-down('xxs') {
+    padding: mix.rem(20) mix.rem(20);
+  }
+}
+
+
 .call-back {
   opacity: 1;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   z-index: 10;
   background: var(--pri-bc);
   padding: mix.rem(81) mix.rem(120) mix.rem(85) mix.rem(120);
-  transition: opacity 0.3s ease;
-  max-width: 46.25rem;
+  transition: opacity 0.4s ease;
   width: 100%;
 
+  &_transparent {
+    background: transparent;
+  }
 
 
   @include mix.media-breakpoint-down('sm') {
     max-width: 100%;
   }
 
-  @include mix.media-breakpoint-down('md', 'height') {
-    display: none;
-  }
-  @include mix.media-breakpoint-down('sm', 'height') {
-    display: none;
-  }
-
-
   @include mix.media-breakpoint-down('xs') {
     padding: mix.rem(40) mix.rem(40);
   }
+
   @include mix.media-breakpoint-down('xxs') {
     padding: mix.rem(20) mix.rem(20);
   }
@@ -37,6 +55,7 @@
   &_hidden {
     opacity: 0;
     pointer-events: none;
+    display: none;
   }
 
   &__input-item {
@@ -74,7 +93,7 @@
     }
   }
 
-  &__top-phrase{
+  &__top-phrase {
     @include mix.media-breakpoint-down('sm') {
       display: block;
       text-align: left;
@@ -95,7 +114,6 @@
     background: transparent;
     font-weight: 400;
     font-size: 1.12rem;
-
   }
 
 
@@ -106,7 +124,6 @@
     color: grey;
     transition: 0.3s ease;
     cursor: text;
-
     font-weight: 400;
     font-size: 1.12rem;
   }
@@ -153,3 +170,38 @@
   }
 }
 
+.call-back-form {
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 18;
+  background: white;
+  max-width: 46.25rem;
+  width: 100%;
+  transition: opacity 0.4s ease;
+
+  &_transparent {
+    position: absolute;
+    background: transparent;
+    bottom: auto;
+    top: 50%;
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__successful-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+
+    &_show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

@@ -1,14 +1,19 @@
 @use "../global/mixins" as mix;
 @use "../global/variables";
-@use "../base/_cost-calculation" ;
+@use "../base/_cost-calculation";
+@use "../base/_pop-up-style";
 @use "../global/sidebar";
 @use "../global/form-call-back";
+@use "../global/pop-up-request-call";
 @use "../global/header";
 @use "sass:math";
 @use "../global/reset";
 @use "../style";
 @use "../base/gallery";
 @use "../base/steps";
+@use "../base/cards-screen";
+@use "../base/_service-list-popup.scss";
+
 
 .screens-swiper {
   height: 100vh;
@@ -16,14 +21,16 @@
   &__pagination {
     position: fixed;
     z-index: 10 !important;
-    right: mix.rem(115) !important ;
-    @include mix.media-breakpoint-down('lg'){
+    right: mix.rem(115) !important;
+
+    @include mix.media-breakpoint-down('lg') {
       right: mix.rem(20) !important;
     }
 
     @include mix.media-breakpoint-down('sm') {
       display: none;
     }
+
     .swiper-pagination-bullet:not(:last-child) {
       margin-bottom: mix.rem(30) !important;
     }
@@ -51,21 +58,15 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-
     }
-
   }
-
-
-
-
 }
 
 .first-screen {
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url("/public-src/images/main-slide1.webp");
+  url("/public-src/main-slide/main-slide1.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 30%;
@@ -86,6 +87,7 @@
     @include mix.media-breakpoint-down('lg') {
       margin-left: 10rem;
     }
+
     @include mix.media-breakpoint-down('sm') {
       font-size: 3rem;
       width: 100%;
@@ -129,7 +131,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url("/public-src/images/main-slide2.webp");
+  url("/images-con/main-slide/main-slide2.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -187,6 +189,7 @@
 .achievements {
   max-width: 75.96rem;
   margin: 0 auto;
+
   @include mix.media-breakpoint-down("lg") {
     max-width: 49rem;
   }
@@ -216,6 +219,7 @@
     position: absolute;
     right: -10.9rem;
     top: -22%;
+
     @include mix.media-breakpoint-down('lg') {
       right: -5.9rem;
     }
@@ -243,13 +247,11 @@
       }
     }
   }
-
 }
 
 .gallery-screen {
   width: 100%;
   height: 100%;
-
 }
 
 
@@ -258,6 +260,7 @@
   width: 100%;
   height: 100%;
   gap: 0;
+
   @include mix.media-breakpoint-down('md') {
     flex-direction: column;
   }
@@ -271,18 +274,21 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    column-gap:  mix.rem(67);
+    column-gap: mix.rem(67);
     justify-content: center;
     align-items: center;
+
     @include mix.media-breakpoint-down('md') {
       flex-direction: column;
     }
   }
 
   &__extra-content {
+
     &_hidden {
       -webkit-animation: slide-out-blurred-top 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
       animation: slide-out-blurred-top 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+
       @include mix.media-breakpoint-down('md') {
         -webkit-animation: slide-out-blurred-top-mobile 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
         animation: slide-out-blurred-top-mobile 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
@@ -296,7 +302,6 @@
       @include mix.media-breakpoint-down('md') {
         -webkit-animation: slide-in-blurred-top-mobile 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
         animation: slide-in-blurred-top-mobile 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-
       }
     }
   }
@@ -305,17 +310,17 @@
     position: relative;
     background-size: cover;
     background-position: center;
-
     transition: all 1s ease;
     overflow: hidden;
     height: 100%;
     width: 33.333%;
+
     @include mix.media-breakpoint-down('md') {
       width: 100%;
       height: 33.33%;
     }
 
-    &:not(:last-child):after{
+    &:not(:last-child):after {
       position: absolute;
       content: '';
       height: 100%;
@@ -324,6 +329,7 @@
       background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 52%, rgba(255, 255, 255, 0) 100%);
       position: absolute;
       right: 0;
+
       @include mix.media-breakpoint-down('md') {
         width: 100%;
         height: 2px;
@@ -331,7 +337,6 @@
         right: auto;
       }
     }
-
   }
 
   &__title {
@@ -412,14 +417,14 @@
 
   &__item:nth-child(1) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/public-src/images/elite.webp");
+    url("/images-con/gallery/elite/elite.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    cursor: pointer;
+
     @include mix.media-breakpoint-down("md") {
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("/public-src/images/elite-mobile.webp");
+      url("/images-con/gallery/elite/elite-mobile.webp");
       background-repeat: no-repeat;
       background-repeat: no-repeat;
       background-size: cover;
@@ -429,14 +434,14 @@
 
   &__item:nth-child(2) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/public-src/images/vip.webp");
+    url("/images-con/gallery/vip/vip.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    cursor: pointer;
+
     @include mix.media-breakpoint-down("md") {
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("/public-src/images/vip-mobile.webp");
+      url("/images-con/gallery/vip/vip-mobile.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -445,20 +450,19 @@
 
   &__item:nth-child(3) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/public-src/images/extra.webp");
+    url("/images-con/gallery/extra/extra.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    cursor: pointer;
+
     @include mix.media-breakpoint-down("md") {
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("/public-src/images/extra-mobile.webp");
+      url("/images-con/gallery/extra/extra-mobile.webp");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
     }
   }
-
 }
 
 .extra-content {
@@ -467,11 +471,16 @@
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 1.12rem;
-    line-height: 1.66667;
+    line-height: 1.66;
     text-transform: uppercase;
     color: var(--pri-color);
     max-width: mix.rem(479);
     margin-bottom: mix.rem(45);
+
+    @include mix.media-breakpoint-down('xs') {
+      font-size: 0.88rem;
+      max-width: mix.rem(280);
+    }
   }
 
   &__link {
@@ -486,6 +495,7 @@
     width: 100%;
     position: relative;
     text-align: left;
+
     @include mix.media-breakpoint-down('md') {
       margin-bottom: 3rem;
     }
@@ -495,8 +505,6 @@
       position: absolute;
       right: 0;
       top: 5px;
-
-
 
       &::before {
         content: '';
@@ -520,6 +528,10 @@
     max-width: mix.rem(314);
     width: 100%;
     position: relative;
+
+    @include mix.media-breakpoint-down('sm') {
+      display: none;
+    }
 
     span {
       position: absolute;
@@ -580,7 +592,6 @@
     -webkit-filter: blur(0);
     filter: blur(0);
     opacity: 1;
-
   }
 }
 

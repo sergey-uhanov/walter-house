@@ -1,0 +1,75 @@
+<section class="pop-up-request">
+
+    <div class="pop-up-request__content">
+
+        <div style="display: none" class="pop-up-request__input-block">
+
+            <section class="call-back-form call-back-form_transparent">
+
+                <form action="POST" class="call-back call-back_transparent" id="call-back_transparent"
+                      novalidate="novalidate">
+
+                    <div class="call-back__input-item field">
+
+                        <input
+                                name="userName"
+                                type="text"
+                                minlength="4"
+                                maxlength="20"
+                                class="field__input"
+                                id="user-name-pop-up"
+                                placeholder=" "
+                                pattern="^[A-Za-z\s]+$"
+                                title="Must have letters"
+                        >
+
+                        <label for="user-name-pop-up" class="field__label">Your name</label>
+
+                    </div>
+
+                    <div class="call-back__input-item field">
+
+                        <input
+                                required
+                                name="userPhone"
+                                type="tel"
+                                minlength="10"
+                                maxlength="16"
+                                class="field__input"
+                                id="user-phone-pop-up"
+                                placeholder=" "
+                        >
+
+                        <label for="user-phone-pop-up" class="field__label">Your phone number</label>
+
+                        <span class="field__errors" id="user-phone-errors-pop-up"> </span>
+
+                    </div>
+
+                    <button class="call-back__button" type="submit">
+
+                        <span class="call-back__top-phrase">Discuss</span> a project
+                        <span class="call-back__row">
+
+                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L17 11.5L1 22" stroke="#FFAC30"/>
+                            </svg>
+                        </span>
+                    </button>
+                </form>
+            </section>
+        </div>
+
+        <div class="pop-up-request__successful-message successful-message">
+
+            <h3 class="successful-message__title">Thank you
+                for your application!
+            </h3>
+
+            <p class="successful-message__sub-title">
+                Our manager will contact you shortly.
+            </p>
+        </div>
+    </div>
+</section>

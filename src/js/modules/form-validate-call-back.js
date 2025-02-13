@@ -1,11 +1,15 @@
 import JustValidate from 'just-validate';
-import {parsePhoneNumberFromString} from 'libphonenumber-js';
+import {formatIncompletePhoneNumber, parsePhoneNumberFromString} from 'libphonenumber-js';
 
+
+export let isValidatePhone = false
+export let isValidateName = false
 
 export function validateCallBack() {
-    const validation = new JustValidate('#call-back-form', {
-        errorFieldCssClass: 'is-invalid', // Класс для невалидных полей
 
+
+    const validation = new JustValidate('#call-back-form', {
+        errorFieldCssClass: 'is-invalid',
     });
 
     validation
@@ -30,10 +34,13 @@ export function validateCallBack() {
                 errorMessage: 'Only letters and spaces are allowed in the name.',
             },
         ])
-
         .onSuccess((event) => {
-            event.preventDefault(); // Отмена стандартной отправки формы
+            event.preventDefault();
+            isValidateName = true;
 
+        })
+        .onFail(() => {
+            isValidateName = false;
         });
 }
 
@@ -43,38 +50,49 @@ export function validatePhoneNumber() {
     const phoneInput = document.getElementById('user-phone');
     const errorContainer = document.getElementById('user-phone-errors');
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Отменяем стандартное поведение формы
+    phoneInput.addEventListener("input", (event) => {
+        const rawValue = event.target.value;
+        const formattedValue = formatIncompletePhoneNumber(rawValue, 'US');
+        phoneInput.value = formattedValue;
+        validate()
+    });
 
-        const phoneValue = phoneInput.value.trim(); // Получаем значение телефона
-        const phoneNumber = parsePhoneNumberFromString(phoneValue, 'US'); // Второй аргумент — код страны (например, 'US', 'RU')
-        // Проверяем, введён ли телефон и валиден ли он
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+
+        isValidatePhone = validate();
+    });
+
+    function validate() {
+        const phoneValue = phoneInput.value.trim();
+        const phoneNumber = parsePhoneNumberFromString(phoneValue, 'US');
+
         if (!phoneValue) {
             showError('Phone number is required.');
-            return;
+            return false;
         }
 
         if (!phoneNumber || !phoneNumber.isValid()) {
             showError('Invalid phone number. Please enter a valid number.');
-            return;
+            return false;
         }
 
-
         clearError();
-
-        // Здесь можно добавить логику отправки формы
-        alert('Form submitted successfully!');
-    });
+        return true;
+    }
 
     function showError(message) {
-        errorContainer.innerHTML = `<span class="field__errors-inner">${message}</span>`
+        errorContainer.innerHTML = `<span class="field__errors-inner">${message}</span>`;
         phoneInput.classList.add('is-invalid');
     }
 
     function clearError() {
-        errorContainer.innerHTML  = '';
+        errorContainer.innerHTML = '';
         phoneInput.classList.remove('is-invalid');
     }
 
+    return validate;
 }
+
 

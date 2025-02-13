@@ -3,7 +3,7 @@
   position: absolute;
   left: 3.8rem;
   top: mix.rem(45);
-  z-index: 10;
+  z-index: 21;
   width: mix.rem(68);
   height: 100%;
   padding-bottom:7.5rem;
@@ -40,7 +40,6 @@
     @include mix.media-breakpoint-down('sm') {
       display: none;
     }
-
   }
 
   &__slogan{
@@ -51,6 +50,7 @@
     width: 100%;
     white-space: nowrap;
     position: relative;
+
     @media (max-height: 852px) {
       display: none;
     }
@@ -67,9 +67,9 @@
       width: mix.rem(154);
       height: 1px;
       background-color: rgba(255, 255, 255, 0.25);
+
       @media (max-height: 968px) {
        display: none;
-
       }
     }
   }
@@ -79,15 +79,17 @@
     flex-direction: column;
     pointer-events: auto;
     gap: mix.rem(40);
+
     @include mix.respond-to('mobile'){
       display: none;
     }
   }
+
   &__social-item{
     transition: transform 0.3s ease-in-out;
   }
+
   &__social-item:hover {
    transform: scale(1.3);
   }
-
 }

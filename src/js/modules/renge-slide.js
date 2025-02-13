@@ -47,13 +47,10 @@ export function priceRangeSlide() {
             closestStep = (closestStep + steps) % steps;
 
 
-            //мои модификации
             if (Math.abs(closestStep - latestSteps) > 20) {
                 return
             }
-            // if (latestSteps > closestStep) {
-            //     return
-            // }
+
 
             latestSteps = closestStep
 
@@ -98,20 +95,6 @@ export function priceRangeSlide() {
     }
 
     circle();
-
-    function updateClass() {
-        const cirlceSlide = document.getElementById("circleSlide");
-
-        const slider = document.querySelector(".slider");
-        slider.addEventListener("mouseover", (e) => {
-            cirlceSlide.classList.add("swiper-no-swiping");
-        });
-        slider.addEventListener("mouseout", (e) => {
-            cirlceSlide.classList.remove("swiper-no-swiping");
-        });
-    }
-
-    updateClass();
 
     function circleUpdateClasses() {
         const selectors = document.querySelectorAll(".cost-calculation__level");
@@ -161,6 +144,4 @@ export function priceRangeSlide() {
             }
         });
     }
-
-
 }

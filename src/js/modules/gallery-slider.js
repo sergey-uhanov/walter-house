@@ -8,26 +8,26 @@ import {Navigation} from "swiper/modules";
 function initGallerySwiper(container) {
 
 
-        return new Swiper(`.gallery${container}`, {
-            modules: [Navigation],
-            direction: 'horizontal',
-            loop: true,
-            navigation: {
-                nextEl: '.gallery__button-next',
-                prevEl: '.gallery__button-prev',
+    return new Swiper(`.gallery${container}`, {
+        modules: [Navigation],
+        direction: 'horizontal',
+        loop: true,
+        navigation: {
+            nextEl: '.gallery__button-next',
+            prevEl: '.gallery__button-prev',
+        },
+        pagination: {
+            el: '.gallery__pagination',
+        },
+        on: {
+            init: function () {
+                updatePagination(this);
             },
-            pagination: {
-                el: '.gallery__pagination',
+            slideChange: function () {
+                updatePagination(this);
             },
-            on: {
-                init: function () {
-                    updatePagination(this);
-                },
-                slideChange: function () {
-                    updatePagination(this);
-                },
-            }
-        });
+        }
+    });
 }
 
 function updatePagination(swiperInstance) {

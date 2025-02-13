@@ -13,7 +13,7 @@ export function stepsRangeSlider() {
 
         let latestSteps = 0;
 
-        for (let i = 1; i < steps ; i++) {
+        for (let i = 1; i < steps; i++) {
             const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
             svg.setAttribute("width", "8");
             svg.setAttribute("height", "8");
@@ -31,8 +31,8 @@ export function stepsRangeSlider() {
 
             svg.appendChild(ellipse);
             circle.appendChild(svg);
-            console.log(svg)
         }
+
         const stepPoints = document.querySelectorAll(".point-circle");
 
         stepPoints.forEach((point, index) => {
@@ -81,7 +81,6 @@ export function stepsRangeSlider() {
             const startAngle = -Math.PI / 2;
 
 
-
             let closestStep = Math.round((angle - startAngle) / stepSize);
             closestStep = (closestStep + steps) % steps;
 
@@ -112,6 +111,7 @@ export function stepsRangeSlider() {
 
             updateCircle(percentage);
             circleUpdateState();
+            circleUpdateClasses();
         }
 
         function stopDrag(e) {
@@ -128,6 +128,14 @@ export function stepsRangeSlider() {
 
             circlePath.style.strokeDasharray = circumference;
             circlePath.style.strokeDashoffset = initialOffset;
+
+            stepPoints.forEach((point, index) => {
+                if (index < latestSteps) {
+                    point.style.color = '#ffac30'
+                } else {
+                    point.style.color = '#fff'
+                }
+            })
         }
 
         updateCircle(0);
@@ -150,20 +158,18 @@ export function stepsRangeSlider() {
     updateClass();
 
     function circleUpdateClasses() {
-        // const selectors = document.querySelectorAll(".cost-calculation__level");
-        //
-        // selectors.forEach((selector) => {
-        //     selector.addEventListener("click", () => {
-        //         selectors.forEach((otherSelector) => {
-        //             if (otherSelector !== selector) {
-        //                 otherSelector.classList.remove("cost-calculation__level_active");
-        //             }
-        //         });
-        //
-        //         selector.classList.add("cost-calculation__level_active");
-        //         circleUpdateState();
-        //     });
-        // });
+
+        const selectors = document.querySelectorAll(".steps__step");
+        const numberStep = document.querySelector(".steps__value-span");
+
+        selectors.forEach((selector, index) => {
+
+            if (index + 1 === Number(numberStep.textContent)) {
+                selector.classList.add('step_show')
+            } else {
+                selector.classList.remove('step_show');
+            }
+        });
     }
 
     circleUpdateClasses();

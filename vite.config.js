@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path, { resolve } from 'path';
 import { convertImages } from './utils/convertImages';
 import injectHTML from 'vite-plugin-html-inject';
 
-const publicImagesDir = path.resolve(__dirname, 'public-src/images');
-const outputImagesDir = path.resolve(__dirname, 'public-src/images');
+const publicImagesDir = path.resolve(__dirname, 'public-src/');
+const outputImagesDir = path.resolve(__dirname, 'images-con/');
 convertImages(publicImagesDir, outputImagesDir);
 
 export default defineConfig({
@@ -18,6 +17,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: resolve(__dirname, 'index.html'),
+                about: resolve(__dirname, 'about.html'),
 
             },
             output: {

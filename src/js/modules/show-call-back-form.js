@@ -1,5 +1,5 @@
-export function showCallBack(isShow){
-    const form = document.getElementById('call-back-form');
+export function showCallBack(isShow) {
+    const form = document.querySelector('.call-back-form_bottom');
     if (form && isShow) {
         form.classList.remove('call-back_hidden');
     } else {

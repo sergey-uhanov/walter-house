@@ -39,12 +39,16 @@ export function screensSlider() {
             slideChange: function () {
                 const activeSlide = this.slides[this.activeIndex];
 
-                if (activeSlide.classList.contains('screens-swiper__slide_hidden-form')) {
+                const isHiddenFormCallBackSteps = (activeSlide.classList.contains('steps-screen') && window.innerWidth < 1024)
+                const isisHiddenFormCallBackGallery = activeSlide.classList.contains('screens-swiper__slide_hidden-form')
+                const isisHiddenFormCallBackCards = (activeSlide.classList.contains('screens-swiper__slide_cards') && window.innerWidth < 1024 || window.innerHeight < 1152)
+
+                if (isHiddenFormCallBackSteps || isisHiddenFormCallBackGallery || isisHiddenFormCallBackCards) {
 
                     showCallBack(false)
+
                 } else {
                     showCallBack(true)
-
                 }
             }
         }
@@ -68,12 +72,6 @@ export function toggleMainSliderLock(lock) {
     swiper.allowSlidePrev = !lock;
     swiper.allowTouchMove = !lock;
 
-    // const paginationEl = document.querySelector('.swiper-pagination');
-    // if (paginationEl) {
-    //     paginationEl.style.opacity= lock ? '0' : '1';
-    //     paginationEl.style.visible= lock ? 'hidden' : 'visible';
-    //
-    // }
 
     if (lock) {
         swiper.mousewheel.disable();
